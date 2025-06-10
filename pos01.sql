@@ -42,10 +42,11 @@ select * from category;
 select * from menu;
 select * from orders;
 
+
 select *
-from category c, menu m, orders o
-where c.category_id = m.category_id
-and m.menu_id = o.menu_id
+from orders o, menu m, category c
+where o.menu_id = m.menu_id
+and m.category_id = c.category_id
 ;
 
 
