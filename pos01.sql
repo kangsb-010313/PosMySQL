@@ -10,7 +10,7 @@ show tables;
 
 -- 테이블 만들기
 create table category(
-	category_id 	int 			primary key
+	category_id 	int 			primary key 		auto_increment
     ,emoji			varchar(10) 	
     ,name			varchar(100)	
     ,explanation	varchar(500)
@@ -18,7 +18,7 @@ create table category(
 
 
 create table menu(
-	menu_id			int				primary key
+	menu_id			int				primary key 		auto_increment
     ,name	 		varchar(100)	
     ,price			int
 	,category_id 	int
@@ -27,7 +27,7 @@ create table menu(
 );
 
 create table orders(
-	order_id 		int				primary key
+	order_id 		int				primary key 		auto_increment
     ,quantity		int 		
     ,table_num 		int
     ,ispaid 		boolean
@@ -48,5 +48,3 @@ from orders o, menu m, category c
 where o.menu_id = m.menu_id
 and m.category_id = c.category_id
 ;
-
-
