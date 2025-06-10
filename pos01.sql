@@ -1,0 +1,51 @@
+-- ----------------------------------------------------
+-- pos 
+-- ----------------------------------------------------
+
+show databases;
+
+-- 테이블 리스트 조회 -------------------------------------------
+show tables;
+
+
+-- 테이블 만들기
+create table category(
+	category_id 	int 			primary key
+    ,emoji			varchar(10) 	
+    ,name			varchar(100)	
+    ,explanation	varchar(500)
+);
+
+
+create table menu(
+	menu_id			int				primary key
+    ,name	 		varchar(100)	
+    ,price			int
+	,category_id 	int
+	,constraint menu_fk foreign key(category_id)
+    references category(category_id)
+);
+
+create table orders(
+	order_id 		int				primary key
+    ,quantity		int 		
+    ,table_num 		int
+    ,ispaid 		boolean
+    ,order_date 	varchar(100)
+    ,menu_id		int		
+	,constraint orders_fk foreign key(menu_id)
+    references menu(menu_id)
+    
+);
+
+select * from category;
+select * from menu;
+select * from orders;
+
+select *
+from category c, menu m, orders o
+where c.category_id = m.category_id
+and m.menu_id = o.menu_id
+;
+
+
