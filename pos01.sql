@@ -7,6 +7,9 @@ show databases;
 -- 테이블 리스트 조회 -------------------------------------------
 show tables;
 
+drop table category;
+drop table menu;
+drop table orders;
 
 -- 테이블 만들기
 create table category(
